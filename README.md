@@ -1,66 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gestão de Residentes e Visitas do Condomínio Girassol
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📋 Descrição do Projeto
 
-## About Laravel
+O **Sistema de Gestão de Residentes e Visitas do Condomínio Girassol** é uma solução moderna e eficiente para o gerenciamento de acessos, segurança e comunicação em condomínios residenciais. O sistema foi projetado para oferecer uma interface intuitiva, recursos robustos e garantir a organização e tranquilidade para todos os usuários.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ⚙️ Funcionalidades Principais
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **Módulo de Administradores**
+- Gerenciamento de moradores, visitantes e seguranças.
+- Emissão de relatórios detalhados.
+- Controle de permissões de acesso.
 
-## Learning Laravel
+### **Módulo de Moradores/Residentes**
+1. **Cadastro e Gerenciamento de Perfil**:
+   - Cadastro inicial com dados pessoais.
+   - Atualização e edição de informações.
+   - Visualização do status da conta e histórico de acessos.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Registro e Gerenciamento de Visitantes**:
+   - Cadastro e geração de autorizações de visita.
+   - Configuração de visitas recorrentes.
+   - Gerenciamento da lista de visitantes.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **Monitoramento de Entradas e Saídas**:
+   - Histórico de visitas com exportação de relatórios.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Notificações e Alertas**:
+   - Notificações em tempo real sobre check-ins e tentativas de acesso.
 
-## Laravel Sponsors
+5. **Solicitações e Comunicação**:
+   - Envio de solicitações para a administração.
+   - Visualização de avisos e comunicados.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### **Módulo de Visitantes**
+- Check-in digital com QR Code ou autorização.
+- Validação rápida de dados para entrada no condomínio.
 
-### Premium Partners
+### **Módulo de Segurança**
+- Controle de acessos em tempo real.
+- Visualização do histórico de visitantes.
+- Comunicação direta com a administração.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## 🛠️ Tecnologias Utilizadas
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **Front-end**
+- HTML, CSS, JavaScript
+- Framework: React
+- Estilização: TailwindCSS
 
-## Code of Conduct
+### **Back-end**
+- PHP com Laravel
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **Banco de Dados**
+- MySQL
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🚀 Como Executar o Projeto
 
-## License
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd nome-do-repositorio
+   ```
+
+3. Instale as dependências do back-end:
+   ```bash
+   composer install
+   ```
+
+4. Instale as dependências do front-end:
+   ```bash
+   npm install
+   ```
+
+5. Configure o arquivo `.env` com as variáveis de ambiente (exemplo incluído no repositório).
+
+6. Execute as migrações do banco de dados:
+   ```bash
+   php artisan migrate
+   ```
+
+7. Inicie o servidor local:
+   ```bash
+   php artisan serve
+   ```
+
+8. Inicie o front-end:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🗂️ Estrutura do Projeto
+
+```plaintext
+/
+├── public/          # Arquivos públicos (imagens, scripts, etc.)
+├── resources/       # Arquivos do front-end (views, CSS, JS)
+├── routes/          # Arquivos de rotas do Laravel
+├── database/        # Migrações e seeds
+├── app/             # Arquivos principais do back-end (controladores, modelos)
+└── ...
+```
+
+---
+
+## 📚 Documentação
+
+A documentação completa do sistema está disponível no diretório `/docs` do repositório.
+
+---
+
+## 👨‍💻 Contribuição
+
+Contribuições são bem-vindas! Para contribuir, siga os passos:
+
+1. Faça um fork do projeto.
+2. Crie uma branch para sua feature:
+   ```bash
+   git checkout -b feature/minha-feature
+   ```
+3. Commit suas alterações:
+   ```bash
+   git commit -m 'Adiciona minha feature'
+   ```
+4. Envie para a branch principal:
+   ```bash
+   git push origin feature/minha-feature
+   ```
+5. Abra um Pull Request.
+
+---
+
+## 🛡️ Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+## 📝 Autor
+
+Desenvolvido por **Jairo Domingos Buto**,  **Nsambu Carlos Augusto**.. Para mais informações ou dúvidas, entre em contato através do [LinkedIn](https://www.linkedin.com/in/jairo-domingos-buto) ou [GitHub](https://github.com/seu-usuario).
