@@ -1,0 +1,144 @@
+.tabela::-webkit-scrollbar {
+    width: 6px;
+}
+
+.table-container {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.table-container .tabela {
+    width: auto;
+    position: absolute;
+    left: 0;
+    right: -20px;
+    padding-right: calc((20px - var(--scroll-min)));
+}
+
+.tabela {
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+.tabela table {
+    width: 99.9%;
+    border-collapse: collapse;
+}
+
+.tabela thead tr {
+    background-color: white;
+    position: sticky;
+    top: -5px;
+    height: 40px;
+}
+
+.tabela tr td,
+.tabela tr th {
+    border-bottom: 1px solid var(--border-black-weak);
+    padding: 4px 5px;
+    text-align: start;
+    font-size: 13px;
+    color: var(--text-black-weak);
+    text-transform: capitalize;
+}
+
+.tabela tr td:last-child,
+.tabela tr th:last-child {
+    text-align: center;
+}
+
+.tabela tr td button {
+    border: none;
+    background-color: transparent;
+    transition: .2s;
+}
+
+.tabela tr td button img {
+    width: 20px;
+    height: 20px;
+}
+
+.tabela tr td .state {
+    padding: 3px;
+    border-radius: 4px;
+    font-size: 11px;
+    letter-spacing: .5px;
+}
+
+
+.tabela .state1 {
+    background-color: rgba(45, 150, 255, 0.205);
+    color: dodgerblue;
+    border: 1px solid rgba(0, 120, 240, 0.267);
+}
+
+.tabela .state2 {
+    background-color: rgba(30, 253, 30, 0.342);
+    color: green;
+    border: 1px solid rgba(30, 253, 30, 0.219);
+}
+
+.tabela .state3 {
+    background-color: rgba(183, 0, 255, 0.151);
+    color: rgb(127, 10, 173);
+    border: 1px solid rgba(183, 0, 255, 0.123);
+}
+
+
+.tabela .line {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.tabela .user {
+    max-width: 250px;
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+    height: 40px;
+    gap: 12px;
+}
+
+.tabela .user figure {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(83, 83, 83, 0.205);
+}
+
+.tabela .user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.tabela .user .wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.tabela .user .wrap h6 {
+    font-size: 12px;
+    color: var(--text-black-bold);
+    text-align: start;
+}
+
+.tabela .user .wrap p {
+    font-size: 12px;
+    color: var(--text-black-weak);
+}

@@ -1,0 +1,194 @@
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding-top: 30px;
+    align-items: start;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container form .none {
+    display: none !important;
+}
+
+#container {
+    width: 800px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    border: 1px solid var(--border-black-weak);
+}
+
+#container h1 {
+    font-size: 20px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#container .line {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    color: var(--text-black-weak);
+}
+
+#container .line p {
+    font-size: 12px;
+}
+
+#container .line select {
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: .8px;
+    color: var(--text-black-weak);
+    border-radius: 0;
+    border-bottom: 3px solid var(--primary-color);
+    background-color: transparent;
+    background-size: 12px;
+    padding-left: 5px;
+    padding-right: 28px;
+    padding-bottom: 3px;
+}
+
+#container form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+#container form .campos {
+    width: 100%;
+    display: flex;
+    gap: 20px 2.6%;
+    flex-flow: row wrap;
+}
+
+#container form .campos .wrap {
+    display: grid;
+    gap: 2px;
+    width: 31.6%;
+    color: var(--text-black-weak);
+}
+
+#container form .campos .full {
+    width: 65.5%;
+}
+
+#container form label {
+    font-size: 12px;
+}
+
+#container form .campos .wrap input,
+#container form .campos .wrap select {
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--text-black-weak);
+    background-color: #ccc;
+    background-color: var(--background-input);
+    border: 1px solid #ccc;
+}
+
+#container form .campos .wrap input:focus,
+#container form .campos .wrap select:focus {
+    background-color: var(--background-input-focus);
+    border: 1px solid #afafafc0;
+}
+
+#container .line {
+    cursor: pointer;
+}
+
+
+#container form .campos .wrap input[type="radio"] {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+
+#container form .campos .wrap .line {
+    gap: 20px;
+}
+
+#container form .campos .wrap .line span {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+#container .alerta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#container form .confirmar {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+#container form .confirmar label {
+    font-size: 12px;
+    color: var(--primary-color);
+}
+
+#container form .confirmar input {
+    width: 12px;
+    cursor: pointer;
+}
+
+
+#container #alerta {
+    width: 100%;
+    padding: 0 12%;
+    font-size: 12px;
+    text-align: center;
+    color: var(--text-black-weak);
+}
+
+#container .inline {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#container .inline button {
+    width: 150px;
+    height: 38px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    font-size: 12px;
+    color: white;
+    transition: .3s;
+    letter-spacing: 1px;
+    letter-spacing: .6px;
+}
+
+#container .inline button:hover {
+    opacity: .9;
+}
+
+#container .inline button:active {
+    opacity: 1;
+}
+
+#container .inline button[type="button"] {
+    background-color: var(--background-black-weak);
+}
+
+#container .inline button[type="submit"] {
+    background-color: var(--primary-color);
+}

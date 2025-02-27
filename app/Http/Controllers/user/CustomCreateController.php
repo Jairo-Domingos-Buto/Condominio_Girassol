@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Http\Controllers\user;
+
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\Resident;
+use App\Models\Concierge;
+use App\Models\Visitor;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
+class CustomCreateController extends Controller
+{
+
+    /**
+     * Validate and create a newly registered user.
+     *
+     * @param  array<string, string>  $request
+     */
+
+    public function create(Request $request)
+    {
+        // $request->validate( [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'string', 'min:8'],
+        //     'card_id' => ['required', 'string', 'max:255'],
+        //     'birthdate' => ['required', 'date'],
+        //     'gender' => ['required', 'string', 'max:255'],
+        //     'phone' => ['required', 'string', 'max:255'],
+        //     'user_type' => ['required', 'string', 'max:255'],
+        //     'profile_photo_path' => ['nullable', 'string', 'max:2000'],
+        // ]);
+
+
+      
+
+        DB::beginTransaction();
+
+        try {
+            // Criar o usuário
+            $user = User::create([
+                'name' => $request['name'],
+                'card_id' => $request['card_id'],
+                'birthdate' => $request['birthdate'],
+                'gender' => $request['gender'],
+                'phone' => $request['phone'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+                'user_type' => $request['user_type'],
+                'profile_photo_path' => $request['profile_photo_path'],
+            ]);
+
+            // Mapeamento de tipos de usuário para modelos
+
+            if ($request['user_type'] == "administrador") {
+                Admin::create([
+                    'user_id' => $user->id,
+                    'shift' => $request['shift'],
+                    'role' => $request['role'],
+                ]);
+            } else if ($request['user_type'] == "morador") {
+                Resident::create([
+                    'user_id' => $user->id,
+                    'apartment' => $request['apartment'],
+                ]);
+            } else if ($request['user_type'] == "porteiro") {
+                Concierge::create([
+                    'user_id' => $user->id,
+                    'department' => $request['department'],
+                    'shift' => $request['shift'],
+                    'supervisor' => $request['supervisor'],
+                    'address' => $request['address'],
+                ]);
+            } else if ($request['user_type'] == "visita") {
+                Visitor::create([
+                    'user_id' => $user->id,
+                ]);
+            }
+
+            DB::commit();
+
+            return redirect()->back()->with('status_create', 'Conta Criada com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with('status_create', 'Conta não Criada!');
+        }
+    }
+}

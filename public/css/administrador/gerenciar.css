@@ -1,0 +1,101 @@
+ /*all style*/
+ #gerenciar button:active {
+     opacity: .8;
+ }
+
+ /*fim all style*/
+
+ #gerenciar {
+     width: 100%;
+     height: 100%;
+     position: relative;
+     display: flex;
+     overflow-y: scroll;
+     flex-direction: column;
+     gap: 10px;
+     scroll-behavior: smooth;
+     padding-bottom: 20px;
+     padding-right: calc(var(--padding-body) - 5px - var(--scroll));
+ }
+
+ #gerenciar .addUser {
+     width: 120px;
+     height: 100%;
+     border: 0;
+     border-radius: 4px;
+     font-size: 11px;
+     background-color: var(--primary-color);
+     color: white;
+     padding: 0 10px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     letter-spacing: .5px;
+     text-decoration: none;
+ }
+
+ #gerenciar .addUser img {
+     width: 16px;
+     filter: invert(1) brightness(3);
+ }
+
+ #gerenciar .obs {
+     font-size: 11px;
+     padding-left: 10px;
+     color: var(--text-black-weak);
+ }
+
+ #gerenciar .tabela tr {
+     cursor: pointer;
+     transition: .2s;
+ }
+
+ #gerenciar .tabela tr:active {
+     transform: scale(1.0005);
+ }
+
+ #gerenciar .tabela td .classification {
+     display: flex;
+     justify-content: start;
+     gap: 10px;
+ }
+
+ #gerenciar .tabela td .classification img {
+     width: 15px;
+     height: 15px;
+ }
+.perfil-inline {
+    margin-bottom: 40px;
+}
+ #gerenciar .line {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ #gerenciar .line h1 {
+     font-size: 15px;
+     font-weight: 500;
+     color: var(--primary-color);
+     text-transform: uppercase;
+ }
+
+ #gerenciar .line button {
+     width: 100px;
+     height: 35px;
+     border: 0;
+     border-radius: 4px;
+     font-size: 11px;
+     background-color: var(--primary-color);
+     color: white;
+     letter-spacing: .5px;
+ }
+
+ #gerenciar #edit-save {
+     margin-top: 10px;
+ }
+
+ #gerenciar #edit-save button {
+     width: 120px;
+     height: 35px;
+ }

@@ -1,0 +1,159 @@
+/*all style*/
+#configuration button:active {
+    opacity: .8;
+}
+
+/*fim all style*/
+
+#configuration {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-right: calc(var(--padding-body));
+}
+
+#configuration .float-right {
+    display: flex;
+    justify-content: right;
+}
+
+#configuration .float-right button {
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    font-size: 11px;
+    color: white;
+    border: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    letter-spacing: .8px;
+}
+
+#configuration .float-right button img {
+    width: 14px;
+    height: 14px;
+    filter: invert(1) brightness(3);
+}
+
+#configuration .content {
+    width: 68%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    padding-right: 6px;
+}
+
+#configuration .content::-webkit-scrollbar {
+    width: var(--scroll-min);
+    background-color: var(--background-input);
+}
+
+#configuration .content::-webkit-scrollbar-thumb {
+    background-color: var(--border-black-weak);
+}
+
+#configuration .content .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#configuration .content .area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#configuration .content .line h1 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+#configuration .content .line img {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#configuration .content .line img:active {
+    opacity: .8;
+}
+
+#configuration .side {
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--background-input);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#configuration .side .profile-admin {
+    width: 100%;
+    height: 26%;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+#configuration .side .profile-admin .profile {
+    display: flex;
+    gap: 8px;
+}
+
+#configuration .side .profile-admin .profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid var(--background-black-weak);
+}
+
+#configuration .side .profile-admin .profile .wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3px 0;
+}
+
+#configuration .side .profile-admin .profile .wrap h4 {
+    font-size: 12px;
+    color: var(--text-black-bold);
+}
+
+#configuration .side .profile-admin .profile .wrap p {
+    font-size: 11px;
+    color: var(--primary-color);
+}
+
+#configuration .side .profile-update {
+    width: 100%;
+    height: 71%;
+}
+
+#configuration .side .profile-update .bar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#configuration .side .profile-update .bar-container .bar-input {
+    background-color: white;
+    border-radius: 6px;
+}

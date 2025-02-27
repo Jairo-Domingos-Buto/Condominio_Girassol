@@ -1,0 +1,118 @@
+/*all style*/
+.container button:active {
+    opacity: 0.8;
+}
+
+/*fim all style*/
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+    display: grid;
+    gap: 45px;
+    padding-right: calc(var(--padding-body) - 5px - var(--scroll));
+}
+
+.card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    transition: all 0.4s;
+    gap: 10px;
+    background-color: white;
+}
+.card:hover {
+    transform: translateY(-10px);
+    transition: all 0.4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card .card-number {
+    font-size: 1.6rem;
+    color: #ff5b20;
+    font-weight: bold;
+}
+
+.notification-alert {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    display: flex;
+    transition: all 0.4s;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.notification-alert:hover {
+    box-shadow: 0 2px 10px rgb(255, 91, 32, 0.1);
+    transition: all 0.4s;
+}
+.notification-alert .notification-icon {
+    color: rgb(255, 91, 32);
+}
+
+.table-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.table-container h3 {
+    margin-bottom: 1rem;
+    color: #ff5b20;
+}
+svg {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+}
+
+.status-active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+#data,
+#contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+@media screen and (min-width: 1200px) {
+    #sidebar .profile-state {
+        height: 50px;
+    }
+}

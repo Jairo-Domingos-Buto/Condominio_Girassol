@@ -1,0 +1,129 @@
+/*all style*/
+#autorizado button:active {
+    opacity: .8;
+}
+
+/*fim all style*/
+/*personalizado*/
+.inline-search {
+    margin-bottom: 10px;
+}
+
+/*fim personalizado*/
+#autorizado {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-right: calc(var(--padding-body) - 5px);
+}
+
+.container {
+    width: 100%;
+    height: 92%;
+    position: relative;
+}
+
+#VisitaAutorizada {
+    height: 100%;
+    display: flex;
+    width: auto;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    gap: 3.5% 1.9%;
+    overflow-y: scroll;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -20px;
+    padding-right: calc((20px - var(--scroll-min)));
+}
+
+#VisitaAutorizada::-webkit-scrollbar {
+    width: var(--scroll-min);
+}
+
+#VisitaAutorizada .card {
+    width: 32%;
+    align-self: flex-start;
+    border-radius: 4px;
+    padding: 15px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0px 0px 1px 1px rgba(34, 34, 34, 0.205);
+}
+
+#VisitaAutorizada .card:hover {
+    transform: scale(1.005);
+}
+
+#VisitaAutorizada .card:active {
+    transform: scale(1);
+}
+
+#VisitaAutorizada .card .line {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+#VisitaAutorizada .card .line button {
+    background-color: var(--background-input);
+    border: 1px solid #ccc;
+    color: rgba(43, 42, 42, 0.829);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 11px;
+    transition: .2s;
+    color: var(--text-black-weak);
+}
+
+#VisitaAutorizada .card .line button:hover {
+    background-color: #e0e0e0;
+    color: var(--text-black-weak);
+}
+
+#VisitaAutorizada .card .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#VisitaAutorizada .card .content p {
+    font-size: 12px;
+    color: var(--text-black-weak);
+}
+
+#VisitaAutorizada .card .content p span {
+    font-weight: 550;
+    color: var(--text-black-bold);
+    margin-right: 6px;
+}
+
+#VisitaAutorizada .card .content .flex {
+    display: flex;
+    gap: 14px;
+}
+
+#VisitaAutorizada .card .content .flex img {
+    width: 84px;
+    height: 94px;
+    border-radius: 4px;
+    border: 1px solid #80808050;
+}
+
+#VisitaAutorizada .card .content .flex .wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#VisitaAutorizada .card .content .row {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+    justify-content: space-between;
+}

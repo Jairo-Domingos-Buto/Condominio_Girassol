@@ -1,0 +1,45 @@
+#row-table {
+    overflow-y: visible;
+    display: grid;
+    align-content: space-between;
+}
+
+/*seletor direcionado*/
+.tabela {
+    min-height: 320px;
+    max-height: 320px;
+}
+
+/*fim seletor direcionado*/
+#row-table .hidden {
+    max-height: 272px;
+    overflow-y: hidden;
+}
+
+#row-table .next {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/*apagar*/
+#row-table .next .btn1 {
+    background-color: #e0e0e0d3;
+}
+
+/*fim apagar*/
+#row-table .next button {
+    width: 25px;
+    height: 30px;
+    font-size: 13px;
+    border: 0;
+    border-radius: 3px;
+    color: var(--text-black-weak);
+    background-color: transparent;
+}
+
+#row-table .next button:hover {
+    background-color: #e0e0e060;
+
+}

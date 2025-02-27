@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: .4px;
+}
+
+:root {
+    /*colors*/
+    --primary-color: #FF5B20;
+    --primary-color-hover: #ff4400;
+    --primary-color-transparent: #ff5b20be;
+    --border-black-weak: #B1B1B1;
+    --text-black-weak: #6E6E6E;
+    --text-black-bold: #555555;
+    --background-black-weak: #333333;
+    --background-input: #e0e0e080;
+    --background-input-focus: #e0e0e0f3;
+    --background-gray-light: #ebebeb;
+    --yellow: #FFD700;
+    --yellow-hover: #f7d30c;
+    --card-black: #747474d8;
+    --card-blue: #008EFF;
+    /*sise*/
+    --width-side: 220px;
+    --height-header: 60px;
+    --padding-body: 40px;
+    --h1-uppercase: 15px;
+    --scroll: 8px;
+    --scroll-min: 5px;
+}
+
+.message {
+    font-size: 12px;
+    text-align: center;
+    color: var(--primary-color) !important;
+}
+
+
+select {
+    letter-spacing: .8px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    /*-webkit-appearance: none; remover o icone down do navegador safari*/
+    -webkit-appearance: none;
+    /*-moz-appearance: none; remover o icone down do navegador firefox*/
+    -moz-appearance: none;
+    background: #ccc url('../img/sort_down_52px.png');
+    background-repeat: no-repeat;
+    background-position: right  10px center;
+    background-size: 16px;
+    padding: 0 30px 0 10px;
+}

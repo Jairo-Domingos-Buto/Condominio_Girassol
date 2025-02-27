@@ -1,0 +1,55 @@
+/*all style*/
+#alerta button:active {
+    opacity: .8;
+}
+
+/*personalizado*/
+#alerta .inline-search {
+    height: 8%;
+}
+
+/*fim personalizado*/
+/*fim all style*/
+
+#alerta {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: calc(var(--padding-body) - var(--scroll));
+
+}
+
+#alerta .tabela {
+    height: 80%;
+}
+
+#alerta .line {
+    height: 8%;
+    display: flex;
+    justify-content: right;
+    align-items: end;
+}
+
+#alerta .tabela tr td,
+#alerta .tabela tr th {
+    padding: 10px 5px;
+}
+
+#alerta .line button {
+    width: 90px;
+    height: 30px;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--primary-color);
+    font-size: 11px;
+    transition: .3s;
+    border: none;
+    letter-spacing: .5px;
+}
+
+#alerta .line button:hover {
+    background-color: var(--primary-color-hover);
+}

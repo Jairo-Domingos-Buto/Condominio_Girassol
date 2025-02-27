@@ -1,0 +1,94 @@
+/*custom-select*/
+.select-container {
+    cursor: pointer;
+    position: relative;
+}
+
+.show-option {
+    width: auto;
+    height: 40px;
+    display: flex;
+    padding: 0 15px;
+    font-size: 12px;
+    background-color: var(--background-input);
+    transition: border-color 0.3s ease;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-black-weak);
+    letter-spacing: .5px;
+
+}
+
+.show-option img {
+    width: 16px;
+    height: 16px;
+}
+
+.select-options {
+    width: 100%;
+    display: grid;
+    border-radius: 6px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 2px;
+    color: var(--text-black-weak);
+    letter-spacing: .5px;
+    background-color: var(--background-gray-light);
+    box-shadow: 0 2px 4px rgba(70, 70, 70, 0.384);
+}
+
+.select-options .select-option {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 12px;
+    color: var(--text-black-weak);
+    transition: background-color 0.1s ease;
+}
+
+.select-options .select-option:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.select-options .select-option:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.select-options .select-option:hover {
+    background-color: #e0e0e0;
+}
+
+/*fim custom-select*/
+
+
+
+/*custom-checkbox*/
+.label-check {
+    display: flex;
+}
+
+.custom-checkbox {
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid var(--border-black-weak);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-checkbox img {
+    width: 14px;
+    height: 14px;
+    display: none;
+
+}
+
+/*fim custom-checkbox*/

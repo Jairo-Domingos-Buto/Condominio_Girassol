@@ -1,0 +1,181 @@
+/*all style*/
+.documento button:active {
+    opacity: .8;
+}
+.documento button {
+    cursor: pointer;
+}
+
+/*fim all style*/
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.836);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.documento {
+    width: 820px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+    background-color: white;
+}
+
+.documento .inline {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.documento .inline figure {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 5px;
+}
+
+.documento .inline figure img {
+    width: 30px;
+}
+
+.documento .inline figure h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.documento .inline .line {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+.documento .inline .line button {
+    height: 28px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 0 10px;
+    letter-spacing: .4px;
+    transition: .2s;
+}
+
+.documento .inline .line button:first-child {
+    background-color: var(--yellow);
+    color: var(--text-black-bold);
+}
+
+.documento .inline .line button:nth-child(2) {
+    background-color: var(--primary-color);
+    color: white;
+}
+.documento .inline .line button:last-child {
+    background-color: var(--background-black-weak);
+    color: white;
+}
+
+.documento .inline .line button:hover {
+    opacity: .8;
+}
+
+.documento .inline .line button:active {
+    opacity: 1;
+}
+
+.documento .inline .line button img {
+    width: 14px;
+}
+
+.documento .inline .line button:nth-child(2) img {
+    filter: invert(1) brightness(3);
+    width: 16px;
+}
+
+.documento .titulo {
+    font-size: 18px;
+    color: var(--text-black-bold);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.documento .flex {
+    display: flex;
+    gap: 15px;
+}
+
+.documento .flex figure img {
+    border-radius: 4px;
+    width: 140px;
+    height: 170px;
+    border: 1px solid rgba(83, 83, 83, 0.205);
+}
+
+.documento .flex .row-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    align-self: flex-start;
+    gap: 15px 10px;
+}
+
+.documento .flex .row-wrap .block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 144px;
+}
+
+.documento .flex .row-wrap .block:last-child {
+    text-align: justify;
+    width: 100%;
+}
+
+.documento .flex .row-wrap .block:last-child p {
+    word-break: normal;
+}
+
+.documento .flex .row-wrap .block h3 {
+    font-size: 13px;
+    color: var(--text-black-bold);
+}
+
+.documento .flex .row-wrap .block p {
+    font-size: 12px;
+    width: 100%;
+    color: var(--text-black-weak);
+    word-break: break-all;
+    hyphens: auto;
+}
+
+
+.documento table {
+    width: 99.9%;
+    border-collapse: collapse;
+}
+.documento tr th {
+    font-size: 13px;
+}
+.documento tr td {
+    font-size: 12px;
+}
+.documento tr th,
+.documento tr td {
+    border-bottom: 1px solid var(--border-black-weak);
+    padding: 10px 5px;
+    color: var(--text-black-weak);
+    text-align: center;
+}
+
+.documento tr span {
+    margin-left: 5px;
+}
