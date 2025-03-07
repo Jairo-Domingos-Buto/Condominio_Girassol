@@ -8,18 +8,20 @@
                 <input type="search" name="" id="" placeholder="Pesquisar...">
                 <button type="button"><img src="{{asset('/img/pesquisar.png')}}" alt="pesquisar"></button>
             </div>
-
             <div class="select-container filter">
                 <div class="show-option" id="showOption">
                     <img src="{{asset('../img/sort.png')}}" alt="">
                     <div class="custom-select" id="customSelect">
-                        Filtrar
+                        {{ $filtro ?? "Filtrar"}}
                     </div>
+                    <!--name do select customizado-->
+                    <input type="hidden" name="filtro" class="hidden">
                 </div>
+
                 <div class="select-options" id="selectOptions">
-                    <div class="select-option" data-value="1">Por data</div>
-                    <div class="select-option" data-value="2">Urgência</div>
-                    <div class="select-option" data-value="3">Urgência</div>
+                    <div class="select-option" data-value="Por dat">Por data</div>
+                    <div class="select-option" data-value="Urgência">Urgência</div>
+                    <div class="select-option" data-value="Urgência">Urgência</div>
                 </div>
             </div>
         </form>

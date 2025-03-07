@@ -36,26 +36,26 @@ function selecionarMulti(elemento) {
         }
     })
 }
-
 function selecionarUni(elemento) {
-    document.querySelectorAll('.uni-select img').forEach(img => {
+    console.log("Elemento:", elemento);
+
+    // Identificar o contêiner pai específico
+    let container = elemento.closest('.bar');
+
+    // Desmarcar todos os outros elementos dentro do mesmo contêiner
+    container.querySelectorAll('.uni-select img').forEach(img => {
         img.style.display = 'none';
     });
 
+    // Marcar o elemento atual
     elemento.querySelectorAll('.uni-select img').forEach(img => {
         img.style.display = 'flex';
     });
-    father = elemento.parentElement
 
-    if (father.id === 'department') {
-        getDepartment.value = elemento.dataset.value
+    // Atualizar o valor do input correspondente
+    let father = container.querySelector('input');
+    if (father) {
+        father.value = elemento.dataset.value;
+        console.log(father.id + " Value:", father.value);
     }
-    else if (father.id === 'shift') {
-        getShift.value = elemento.dataset.value
-    }
-    else if (father.id === 'supervisor') {
-        getSupervisor.value = elemento.dataset.value
-    }
-
-    console.log(getDepartment.value)
 }

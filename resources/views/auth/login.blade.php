@@ -14,12 +14,6 @@
     <section id="container">
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <div class="message">
-                @session('status')
-                {{ $value }}
-                @endsession
-            </div>
-
             <h1>Login</h1>
             <div class="wrap">
                 <label for="email" value="{{ __('Email') }}">Email</label>
@@ -45,6 +39,11 @@
                 </a>
                 @endif
             </div>
+            <!--inicio mensagem-->
+            <p class="message">
+                <x-validation-errors class="message-component message-center" />
+            </p>
+            <!--fim mensagem-->
         </form>
     </section>
 

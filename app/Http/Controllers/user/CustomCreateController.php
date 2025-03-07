@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomRequest;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Resident;
@@ -11,33 +12,17 @@ use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 
 class CustomCreateController extends Controller
 {
-
     /**
      * Validate and create a newly registered user.
      *
-     * @param  array<string, string>  $request
+     * @param CustomRequest $request
      */
-
-    public function create(Request $request)
+    public function create(CustomRequest $request)
     {
-        // $request->validate( [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        //     'password' => ['required', 'string', 'min:8'],
-        //     'card_id' => ['required', 'string', 'max:255'],
-        //     'birthdate' => ['required', 'date'],
-        //     'gender' => ['required', 'string', 'max:255'],
-        //     'phone' => ['required', 'string', 'max:255'],
-        //     'user_type' => ['required', 'string', 'max:255'],
-        //     'profile_photo_path' => ['nullable', 'string', 'max:2000'],
-        // ]);
-
-
-      
-
         DB::beginTransaction();
 
         try {
@@ -55,7 +40,6 @@ class CustomCreateController extends Controller
             ]);
 
             // Mapeamento de tipos de usuário para modelos
-
             if ($request['user_type'] == "administrador") {
                 Admin::create([
                     'user_id' => $user->id,
@@ -84,10 +68,8 @@ class CustomCreateController extends Controller
             DB::commit();
 
             return redirect()->back()->with('status_create', 'Conta Criada com sucesso!');
-        } catch (\Exception $e) {
-            DB::rollBack();
-
-            return redirect()->back()->with('status_create', 'Conta não Criada!');
+        }  catch (\Exception $e) {
+            DB::rollBack();            
         }
     }
 }

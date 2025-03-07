@@ -17,14 +17,23 @@
     padding-right: calc(var(--padding-body) - 5px);
 }
 
+.container {
+    width: 100%;
+    height: 92%;
+    position: relative;
+}
+
 .listing {
+    width: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
     overflow-y: scroll;
-    height: 92%;
+    height: 100%;
     padding: 5px;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     right: -20px;
     padding-right: calc((20px - var(--scroll-min)));
 }

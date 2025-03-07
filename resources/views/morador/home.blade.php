@@ -115,4 +115,12 @@
 
 </section>
 
+<script>
+    var active = document.querySelector("#side-dashboard-morador")
+    var activeImg = document.querySelector('#side-dashboard-morador img')
+    active.style.color = 'white'
+    active.style.background = 'var(--primary-color)'
+    activeImg.style.filter = 'invert(1) brightness(3)'
+</script>
+
 @endsection

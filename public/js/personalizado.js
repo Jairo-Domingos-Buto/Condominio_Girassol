@@ -3,19 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const showOptions = document.querySelectorAll('.show-option');
     const customSelects = document.querySelectorAll('.custom-select');
     const selectOptionsContainers = document.querySelectorAll('.select-options');
-
+ 
     // Definindo a função select primeiro
-    function select(showOption, customSelect, selectOptions) {
+    function select(elemento, showOption, customSelect, selectOptions) {
         const isVisible = selectOptions.style.display === 'grid';
         selectOptions.style.display = isVisible ? 'none' : 'grid';
+
+        var hidden = elemento.querySelector(".hidden")
 
         const selectOptionsInner = selectOptions.querySelectorAll('.select-option');
 
         selectOptionsInner.forEach(selectOptionActive => {
             selectOptionActive.addEventListener('click', function () {
-                customSelect.textContent = this.textContent;
-                const dataValue = this.getAttribute('data-value');
-                customSelect.setAttribute('data-value', `${dataValue}`);
+                customSelect.textContent = this.textContent
+                hidden.value = this.dataset.value                
             });
         });
 
@@ -29,18 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Usando a função select dentro do evento click
     showOptions.forEach((showOption, index) => {
         showOption.addEventListener('click', function () {
-            select(showOption, customSelects[index], selectOptionsContainers[index]);
+            select(this, showOption, customSelects[index], selectOptionsContainers[index]);
         });
     });
 
-    var getValueSelect = document.querySelectorAll('.custom-select').forEach(getValues => {
-        getValues.value = getValues.textContent
-    })
-
-
-
-
 });
+
+
 //custom checkbox
 if (document.querySelector('.custom-checkbox')) {
     var customCheckbox = document.querySelector('.custom-checkbox')

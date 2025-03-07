@@ -17,6 +17,32 @@ class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
+    protected function getConditionalRules(string $userType): array
+    {
+        $rules = [];
+
+        if ($userType == "administrador") {
+            $rules = [
+                'shift' => ['required', 'string', 'max:255'],
+                'role' => ['required', 'string', 'max:255'],
+            ];
+        } elseif ($userType == "morador") {
+            $rules = [
+                'apartment' => ['required', 'string', 'max:255'],
+            ];
+        } elseif ($userType == "porteiro") {
+            $rules = [
+                'department' => ['required', 'string', 'max:255'],
+                'shift' => ['required', 'string', 'max:255'],
+                'supervisor' => ['required', 'string', 'max:255'],
+                'address' => ['required', 'string', 'max:255'],
+            ];
+        }
+
+        return $rules;
+    }
+
+
     /**
      * Validate and create a newly registered user.
      *
@@ -24,7 +50,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        Validator::make($input, [
+        Validator::make($input, array_merge([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
@@ -35,6 +61,28 @@ class CreateNewUser implements CreatesNewUsers
             'phone' => ['required', 'string', 'max:255'],
             'user_type' => ['required', 'string', 'max:255'],
             'profile_photo_path' => ['nullable', 'string', 'max:2000'],
+        ], $this->getConditionalRules($input['user_type'])), [
+            'name.required' => 'O campo nome é obrigatório.',
+            'email.required' => 'O campo e-mail é obrigatório.',
+            'email.email' => 'O campo e-mail deve ser um endereço de e-mail válido.',
+            'email.unique' => 'O e-mail informado já está em uso.',
+            'password.required' => 'O campo senha é obrigatório.',
+            'password.min' => 'A senha deve ter no mínimo 8 caracteres.',
+            'password.confirmed' => 'A confirmação da senha não corresponde.',
+            'terms.accepted' => 'Você deve aceitar os termos e condições.',
+            'card_id.required' => 'O campo identificação do cartão é obrigatório.',
+            'birthdate.required' => 'O campo data de nascimento é obrigatório.',
+            'birthdate.date' => 'A data de nascimento deve ser uma data válida.',
+            'gender.required' => 'O campo gênero é obrigatório.',
+            'phone.required' => 'O campo telefone é obrigatório.',
+            'user_type.required' => 'O campo tipo de usuário é obrigatório.',
+            'profile_photo_path.max' => 'O caminho da foto do perfil não pode exceder 2000 caracteres.',
+            'shift.required' => 'O campo turno é obrigatório para administradores e porteiros.',
+            'role.required' => 'O campo patente é obrigatório para administradores.',
+            'apartment.required' => 'O campo apartamento é obrigatório para moradores.',
+            'department.required' => 'O campo departamento é obrigatório para porteiros.',
+            'supervisor.required' => 'O campo supervisor é obrigatório para porteiros.',
+            'address.required' => 'O campo endereço é obrigatório para porteiros.',
         ])->validate();
 
         DB::beginTransaction();
@@ -83,7 +131,6 @@ class CreateNewUser implements CreatesNewUsers
             DB::commit();
 
             return $user;
-            
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;

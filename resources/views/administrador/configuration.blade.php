@@ -55,7 +55,7 @@
                     </div>
                     <div class="select-edit">
                         <div class="edit uni-select" data-value="1" onclick="selecionarUni(this)">Portão Pincipal <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
-                        <div class="edit uni-select" data-value="2" onclick="selecionarUni(this)">Portão Secundáio <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
+                        <div class="edit uni-select" data-value="2" onclick="selecionarUni(this)">Portão Secundário <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
                     </div>
                 </div>
                 <div class="bar">
@@ -108,7 +108,7 @@
                     </div>
                     <div class="select-edit">
                         <div class="edit uni-select" data-value="1" onclick="selecionarUni(this)">Portão Pincipal <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
-                        <div class="edit uni-select" data-value="2" onclick="selecionarUni(this)">Portão Secundáio <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
+                        <div class="edit uni-select" data-value="2" onclick="selecionarUni(this)">Portão Secundário <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
                     </div>
                 </div>
                 <div class="bar">
@@ -161,7 +161,7 @@
                     </div>
                     <div class="select-edit">
                         <div class="edit uni-select" data-value="1" onclick="selecionarUni(this)">Portão Pincipal <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
-                        <div class="edit uni-select" data-value="2" onclick="selecionarUni(this)">Portão Secundáio <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
+                        <div class="edit uni-select" data-value="2" onclick="selecionarUni(this)">Portão Secundário <img src="{{asset('../img/green_checkmark.png')}}" alt=""></div>
                     </div>
                 </div>
                 <div class="bar">
@@ -224,6 +224,6 @@
     active.style.background = 'var(--primary-color)'
     activeImg.style.filter = 'invert(1) brightness(3)'
 </script>
-<script src="{{asset('../js/administrador/bar-select.js')}}"></script>
+<script src="{{asset('../js/administrador/bar_select.js')}}"></script>
 
 @endsection

@@ -86,8 +86,7 @@
         <label for="photo">
             <img src="{{ asset('/img/photo.png') }}" alt="" class="photo">
         </label>
-        <input type="text" name="photo" id="exibirFoto">
-        <input type="file" name="" id="photo" onchange="nomeFoto(event)">
+        <hr>
     </form>
     <!--fim adicionar foto-->
 

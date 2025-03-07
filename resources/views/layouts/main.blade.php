@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('../css/main.css')}}">
     <link rel="stylesheet" href="{{asset('../css/style.css')}}">
     <link rel="stylesheet" href="{{asset('../css/personalizado.css')}}">
+    <link rel="stylesheet" href="{{asset('../css/customConfirm.css')}}">
     @yield('links')
     <title>@yield('title')</title>
 </head>
@@ -29,7 +30,7 @@
                         <div class="count">
                             1
                         </div>
-                        <button type="button" onclick="notification()"><img src="{{asset('/img/notification.png')}}" alt="notificações"></button>
+                        <a href="{{ route('notification.morador') }}" id=""><img src="{{asset('/img/notification.png')}}" alt="notificações"></a>
                     </div>
                 </div>
                 <div class="profile">
@@ -46,10 +47,13 @@
                     <ul>
                         <li>
                             @if(Request::is('admin/*'))
-                            <a href="{{ route('admin.profile.show') }}" id="side-conta">Meu Perfil</a>
+                            <a href="{{ route('profile.admin') }}" id="side-conta">Meu Perfil</a>
 
                             @elseif(Request::is('porteiro/*'))
-                            <a href="{{ route('porteiro.profile.show') }}" id="side-conta">Meu Perfil</a>
+                            <a href="{{ route('profile.porteiro') }}" id="side-conta">Meu Perfil</a>
+
+                            @elseif(Request::is('morador/*'))
+                            <a href="{{ route('profile.morador') }}" id="side-conta">Meu Perfil</a>
                             @endif
                         </li>
                         <li><a href="#" id="side-historico">Histórico de Acesso</a></li>
@@ -117,11 +121,10 @@
 
         @elseif(Request::is('morador/*'))
         <ul id="nav">
-            <li><a href="{{route('dashboard.morador')}}" id="side-morador"><img src="{{asset('/img/caretaker_48px.png')}}" alt="">Página Inicial</a></li>
-            <li><a href="{{route('notification.morador')}}" id="side-visita"><img src="{{asset('/img/ticket_purchase_48px.png')}}" alt="">Gerir Visitas</a></li>
-            <li><a href="{{route('notification.morador')}}" id="side-prestador"><img src="{{asset('/img/delivery_handcart_48px.png')}}" alt="">Históricos</a></li>
-            <li><a href="{{route('notification.morador')}}" id="side-visita-autorizada"><img src="{{asset('/img/ticket_purchase_48px.png')}}" alt="">Notificações</a></li>
-            <li><a href="{{route('notification.morador')}}" id="side-lista-morador"><img src="{{asset('/img/lista_morador.png')}}" alt="">Configurações</a></li>
+            <li><a href="{{route('dashboard.morador')}}" id="side-dashboard-morador"><img src="{{asset('/img/caretaker_48px.png')}}" alt="">Página Inicial</a></li>
+            <li><a href="{{route('notification.morador')}}" id="side-visita-morador"><img src="{{asset('/img/ticket_purchase_48px.png')}}" alt="">Gerir Visitas</a></li>
+            <li><a href="{{route('notification.morador')}}" id="side-Historico-morador"><img src="{{asset('/img/delivery_handcart_48px.png')}}" alt="">Históricos</a></li>
+            <li><a href="{{route('notification.morador')}}" id="side-configuration-morador"><img src="{{asset('/img/lista_morador.png')}}" alt="">Configurações</a></li>
         </ul>
         @endif
 
@@ -130,7 +133,7 @@
         </div>
     </section>
 
-    <!--início side-right-->
+    <!--início side-right side-notification-->
     <section class="side-right side-notification">
         <div class="header">
             <h1>Notificação</h1>
@@ -265,7 +268,7 @@
         </div>
     </section>
     <!--fim side-left-->
-    <!--início side-left-->
+    <!--início side-left side-mensagem-->
     <section class="side-right side-mensagem">
         <div class="header">
             <h1>Mensagem</h1>
@@ -321,6 +324,7 @@
 
     <script src="{{asset('../js/main.js')}}"></script>
     <script src="{{asset('../js/personalizado.js')}}"></script>
+    <script src="{{asset('../js/customConfirm.js')}}"></script>
 
 </body>
 

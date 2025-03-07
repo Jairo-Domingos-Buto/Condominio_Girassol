@@ -57,14 +57,10 @@
                         <p>{{ Auth::user()->email }}</p>
                     </div>
                     <div class="wrap">
-                        <h3>turno</h3>
-                        <p>{{ Auth::user()->admin->shift }}</p>
+                        <h3>apartarmento</h3>
+                        <p>{{ Auth::user()->resident->apartment }}</p>
                     </div>
-                    <div class="wrap">
-                        <h3>patente</h3>
-                        <p>{{ Auth::user()->admin->role }}</p>
-                    </div>
-                </div>
+                 </div>
             </div>
             <!--Fim divider-->
         </div>
@@ -72,7 +68,7 @@
     <!--fim informações do perfil-->
 
     <!--inicio adicionar foto-->
-    <form method="post" action="" enctype="multipart/form-data" class="addFoto">
+    <form method="post" action="{{ route('customProfilef.update') }}" enctype="multipart/form-data" class="addFoto">
         @csrf
         @method('PUT')
 
@@ -128,7 +124,7 @@
                             <div class="wrap">
                                 <label for="email">e-mail</label>
                                 <input id="email" name="email" type="email" value="{{ Auth::user()->email }}">
-                            </div>
+                            </div> 
                             <div class="line">
                                 <p class="message">
                                     @if (session('status'))
@@ -184,9 +180,7 @@
     var activeImg = document.querySelector('#side-conta img')
     active.style.color = 'white'
     active.style.background = 'var(--primary-color)'
-    activeImg.style.filter = 'invert(1) brightness(3)'
-
-   
+    activeImg.style.filter = 'invert(1) brightness(3)'   
 </script>
 <script src="{{asset('/main.js')}}"></script>
 

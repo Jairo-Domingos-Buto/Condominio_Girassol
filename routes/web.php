@@ -22,7 +22,7 @@ use App\Http\Controllers\administrador\gerenciarController;
 use App\Http\Controllers\administrador\dashboardController;
 use App\Http\Controllers\administrador\sistemaController;
 use App\Http\Controllers\SessionController;
-
+use App\Http\Controllers\user\CustomDeleteController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -63,7 +63,7 @@ Route::middleware([
                 [cadastroController::class, 'cadastrarPorteiro']
             )->name('porteiro.cadastrar');
             Route::get(
-                'vistia',
+                'visita',
                 [cadastroController::class, 'cadastrarVisita']
             )->name('visita.cadastrar');
         });
@@ -74,20 +74,38 @@ Route::middleware([
                 [gerenciarController::class, 'gerenciarMorador']
             )->name('morador.gerenciar');
 
+            //pegar id
+            Route::get(
+                'morador/{id}',
+                [gerenciarController::class, 'gerenciarMorador']
+            );
+
             Route::get(
                 'porteiro',
                 [gerenciarController::class, 'gerenciarPorteiro']
             )->name('porteiro.gerenciar');
 
+            //pegar id
+            Route::get(
+                'porteiro/{id}',
+                [gerenciarController::class, 'gerenciarPorteiro']
+            );
+
             Route::get(
                 'visita',
                 [gerenciarController::class, 'gerenciarVisita']
             )->name('visita.gerenciar');
+
+            //pegar id
+            Route::get(
+                'visita/{id}',
+                [gerenciarController::class, 'gerenciarVisita']
+            );
         });
         //perfil
         Route::get('conta', action: function () {
             return view('administrador.conta');
-        })->name('admin.profile.show');
+        })->name('profile.admin');
         //Relatório
         Route::get(
             'relatoriocompleto',
@@ -99,7 +117,11 @@ Route::middleware([
             'configuration',
             [sistemaController::class, 'configuration']
         )->name('configuration.sistema');
+
+        //outros
+        Route::get('search', [gerenciarController::class, 'search'])->name('search');
     });
+
     //moradores
     Route::prefix('morador')->group(function () {
         Route::get('dashboard', function () {
@@ -108,7 +130,13 @@ Route::middleware([
         Route::get('notificacoes', function () {
             return view('morador.notificacao');
         })->name('notification.morador');
+        //perfil
+        Route::get('conta', action: function () {
+            return view('morador.conta');
+        })->name('profile.morador');
+        //central de controle
     });
+
 
     //porteiros
     Route::prefix('porteiro')->group(function () {
@@ -150,7 +178,7 @@ Route::middleware([
         //perfil
         Route::get('conta', action: function () {
             return view('porteiro.conta');
-        })->name('porteiro.profile.show');
+        })->name('profile.porteiro');
         //central de controle
         //painel
         Route::get(
@@ -179,14 +207,14 @@ Route::middleware([
 
     //profile
     Route::put('profile/update', [CustomProfileController::class, 'update'])->name('customProfile.update');
-    Route::put('profile/updatef', [CustomPhotoController::class, 'update'])->name('customProfilef.update');
+    //Route::put('profile/updatef', [CustomPhotoController::class, 'update'])->name('customProfilef.update');
     Route::get('profile/show', [CustomShowController::class, 'show'])->name('customShow.show');
     Route::post('profile/create', [CustomCreateController::class, 'create'])->name('customCreate.create');
     Route::post('profile/foto', [CustomCreateController::class, 'create'])->name('customCreate.create');
 
+
     //User
-    Route::put(
-        'gerenciar/update',
-        [gerenciarController::class, 'update']
-    )->name('update.gerenciar');
+    Route::post('user/delete', [CustomDeleteController::class, 'destroy'])->name('customDelete');
+
+    Route::put('gerenciar/update', [gerenciarController::class, 'update'])->name('update.gerenciar');
 });

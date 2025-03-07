@@ -10,7 +10,6 @@ extender.style.margin = '5px 0 5px 35px';
 
 active.style.color = 'white';
 active.style.background = 'var(--primary-color)';
-activeImg.style.filter = 'invert(1) brightness(3)';
 
 function nomeFoto(event) {
     var input = event.target;

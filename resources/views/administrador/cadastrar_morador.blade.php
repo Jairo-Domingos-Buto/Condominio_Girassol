@@ -68,12 +68,17 @@
         </div>
         <div class="divider obs">
             <p>O restante das informações serão acescentadas pelo morador. Para melhor convicção da informação.</p>
-            <p class="message">
-                @if (session('status_create'))
-                {{ session('status_create') }}
-                @endif
-            </p>
-        </div> 
+        </div>
+        <!--inicio mensagem-->
+        <p class="message">
+            @if (session('status_create'))
+            {{ session('status_create') }}
+            @endif
+        </p>
+        <p class="message">
+            <x-validation-errors class="message-component message-ul" />
+        </p>
+        <!--fim mensagem-->
         <div class="divider mostrar-foto">
             <h1>Foto</h1>
             <label for="photo" class="foto">

@@ -1,91 +1,96 @@
+.scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
 body {
     width: 100%;
     height: 100vh;
     display: flex;
-    padding-top: 30px;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#container form .none {
-    display: none !important;
-}
-
 #container {
-    width: 800px;
+    width: 92%;
+    height: 85vh;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px;
+    padding: 3px;
+    padding-bottom: 20px;
     border: 1px solid var(--border-black-weak);
 }
 
-#container h1 {
+#container .scroll {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 30px;
+    overflow-y: scroll;
+}
+
+#container .scroll h1 {
     font-size: 20px;
     color: var(--primary-color);
     text-align: center;
-    margin-bottom: 10px;
 }
 
-#container .line {
+#container .scroll .line {
     display: flex;
     gap: 6px;
     align-items: center;
     color: var(--text-black-weak);
 }
 
-#container .line p {
+#container .scroll .line p {
     font-size: 12px;
 }
 
-#container .line select {
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    font-size: 11px;
+#container .scroll .line .select-user-type {
+    min-width: 140px;
+    height: 30px;
+    padding: 0 6px;
+    font-size: 12px;
     letter-spacing: .8px;
     color: var(--text-black-weak);
     border-radius: 0;
-    border-bottom: 3px solid var(--primary-color);
     background-color: transparent;
-    background-size: 12px;
-    padding-left: 5px;
-    padding-right: 28px;
-    padding-bottom: 3px;
+    border-bottom: 3px solid var(--primary-color);
 }
 
-#container form {
+#container .scroll form {
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
 
-#container form .campos {
+#container .scroll form .campos {
     width: 100%;
     display: flex;
-    gap: 20px 2.6%;
+    gap: 20px 1.5%;
     flex-flow: row wrap;
 }
 
-#container form .campos .wrap {
+#container .scroll form .campos .wrap {
     display: grid;
     gap: 2px;
-    width: 31.6%;
+    width: 23.8%;
     color: var(--text-black-weak);
 }
 
-#container form .campos .full {
-    width: 65.5%;
+/* eliminar
+#container .scroll form .campos .full {
+    width: 50%;
 }
-
-#container form label {
+*/
+#container .scroll form label {
     font-size: 12px;
 }
 
-#container form .campos .wrap input,
-#container form .campos .wrap select {
+#container .scroll form .campos .wrap input,
+#container .scroll form .campos .wrap .show-option {
     width: 100%;
     height: 35px;
     padding: 0 10px;
@@ -99,58 +104,58 @@ body {
     border: 1px solid #ccc;
 }
 
-#container form .campos .wrap input:focus,
-#container form .campos .wrap select:focus {
+#container .scroll form .campos .wrap input:focus,
+#container .scroll form .campos .wrap .show-option:focus {
     background-color: var(--background-input-focus);
     border: 1px solid #afafafc0;
 }
 
-#container .line {
+#container .scroll .line {
     cursor: pointer;
 }
 
 
-#container form .campos .wrap input[type="radio"] {
+#container .scroll form .campos .wrap input[type='radio'] {
     width: 13px;
     height: 13px;
     cursor: pointer;
 }
 
-#container form .campos .wrap .line {
+#container .scroll form .campos .wrap .line {
     gap: 20px;
 }
 
-#container form .campos .wrap .line span {
+#container .scroll form .campos .wrap .line span {
     display: flex;
     gap: 6px;
     align-items: center;
 }
 
-#container .alerta {
+#container .scroll .alerta {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-#container form .confirmar {
+#container .scroll form .confirmar {
     display: flex;
     justify-content: center;
     gap: 6px;
 }
 
-#container form .confirmar label {
+#container .scroll form .confirmar label {
     font-size: 12px;
     color: var(--primary-color);
 }
 
-#container form .confirmar input {
+#container .scroll form .confirmar input {
     width: 12px;
     cursor: pointer;
 }
 
 
-#container #alerta {
+#container .scroll #alerta {
     width: 100%;
     padding: 0 12%;
     font-size: 12px;
@@ -158,13 +163,13 @@ body {
     color: var(--text-black-weak);
 }
 
-#container .inline {
+#container .scroll .inline {
     display: flex;
     justify-content: center;
     gap: 25px;
 }
 
-#container .inline button {
+#container .scroll .inline button {
     width: 150px;
     height: 38px;
     border-radius: 4px;
@@ -177,18 +182,18 @@ body {
     letter-spacing: .6px;
 }
 
-#container .inline button:hover {
+#container .scroll .inline button:hover {
     opacity: .9;
 }
 
-#container .inline button:active {
+#container .scroll .inline button:active {
     opacity: 1;
 }
 
-#container .inline button[type="button"] {
+#container .scroll .inline button[type="button"] {
     background-color: var(--background-black-weak);
 }
 
-#container .inline button[type="submit"] {
+#container .scroll .inline button[type="submit"] {
     background-color: var(--primary-color);
 }

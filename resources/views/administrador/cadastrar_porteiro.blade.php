@@ -57,18 +57,40 @@
             </div>
             <div class="wrap">
                 <label for="shift">Turno</label>
-                <select name="shift" id="shift" class="select" required>
-                    <option value="manhã">Manhã</option>
-                    <option value="tarde">Tarde</option>
-                    <option value="noite">noite</option>
-                </select>
+                <div class="select-container">
+                    <div class="show-option" id="showOption">
+                        <div class="custom-select" id="customSelect">
+                            Turno
+                        </div>
+                        <img src="{{asset('../img/sort_down_52px.png')}}" alt="">
+                        <!--name do select customizado-->
+                        <input type="text" name="shift" class="hidden" hidden>
+                    </div>
+
+                    <div class="select-options" id="selectOptions">
+                        <div class="select-option" data-value="Manhã">Manhã</div>
+                        <div class="select-option" data-value="Tarde">Tarde</div>
+                        <div class="select-option" data-value="Noite">Noite</div>
+                    </div>
+                </div>
             </div>
             <div class="wrap">
                 <label for="department">Departamento</label>
-                <select name="department" id="department" class="select" required>
-                    <option value="primeiro portão">Primeiro Portão</option>
-                    <option value="segundo portão">Segundo Portão</option>
-                </select>
+                <div class="select-container">
+                    <div class="show-option" id="showOption">
+                        <div class="custom-select" id="customSelect">
+                            Departamento
+                        </div>
+                        <img src="{{asset('../img/sort_down_52px.png')}}" alt="">
+                        <!--name do select customizado-->
+                        <input type="text" name="department" class="hidden" hidden>
+                    </div>
+
+                    <div class="select-options" id="selectOptions">
+                        <div class="select-option" data-value="Portão Principal">Portão Principal</div>
+                        <div class="select-option" data-value="Portão Secundário">Portão Secundário</div>
+                    </div>
+                </div>
             </div>
             <div class="wrap">
                 <label for="supervisor">Supervisor</label>
@@ -88,12 +110,17 @@
         </div>
         <div class="divider obs">
             <p>O restante das informações serão acescentadas pelo morador. Para melhor convicção da informação.</p>
-            <p class="message">
-                @if (session('status_create'))
-                {{ session('status_create') }}
-                @endif
-            </p>
         </div>
+        <!--inicio mensagem-->
+        <p class="message">
+            @if (session('status_create'))
+            {{ session('status_create') }}
+            @endif
+        </p>
+        <p class="message">
+            <x-validation-errors class="message-component message-ul" />
+        </p>
+        <!--fim mensagem-->
         <div class="divider mostrar-foto">
             <h1>Foto</h1>
             <label for="photo" class="foto">

@@ -17,7 +17,7 @@
     justify-content: space-between;
     color: var(--text-black-weak);
     letter-spacing: .5px;
-
+    text-transform: capitalize;
 }
 
 .show-option img {
@@ -31,6 +31,7 @@
     border-radius: 6px;
     display: none;
     position: absolute;
+    z-index: 2;
     top: 100%;
     left: 0;
     margin-top: 2px;

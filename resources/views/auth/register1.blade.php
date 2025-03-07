@@ -89,8 +89,8 @@
             <div class="mt-4">
                 <x-label for="departamento" value="{{ __('Departamento') }}" />
                 <select name="department" id="departamento" class="block mt-1 w-full select" required>
-                    <option value="primeiro portão">Primeiro Portão</option>
-                    <option value="segundo portão">Segundo Portão</option>
+                    <option value="Portão Principal">Portão Principal</option>
+                    <option value="Portão Secundário">Portão Secundário</option>
                 </select>
             </div>
             <div class="mt-4">

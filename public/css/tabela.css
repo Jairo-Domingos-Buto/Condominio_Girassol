@@ -32,15 +32,16 @@
 
 .tabela thead tr {
     background-color: white;
-    position: sticky;
+    position: sticky; 
     top: -5px;
     height: 40px;
 }
-
+.tabela tbody tr {
+    height: 50px;
+}
 .tabela tr td,
 .tabela tr th {
     border-bottom: 1px solid var(--border-black-weak);
-    padding: 4px 5px;
     text-align: start;
     font-size: 13px;
     color: var(--text-black-weak);

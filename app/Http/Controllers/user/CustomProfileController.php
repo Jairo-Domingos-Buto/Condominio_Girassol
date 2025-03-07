@@ -17,7 +17,7 @@ class CustomProfileController extends Controller
             'birthdate' => ['required', 'date'],
             'gender' => ['required', 'string', 'max:255'],
             'card_id' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'], 
             'email' => ['required', 'email', 'max:255'],
         ]);
 

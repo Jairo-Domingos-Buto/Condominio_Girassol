@@ -17,29 +17,42 @@
 @endsection
 
 <section id="gerenciar">
+    @if ($users->isNotEmpty())
     <!--inline search-->
     <div class="inline-search">
-        <form action="" method="">
+        <form action="{{ route('visita.gerenciar') }}" method="GET">
+            @csrf
             <div class="search">
-                <input type="search" name="" id="" placeholder="Digite o nome...">
-                <button type="button"><img src="{{asset('/img/pesquisar.png')}}" alt="pesquisar"></button>
+                <input id="search" type="search" name="search" placeholder="Digite o nome..." value="{{ $searched ?? '' }}">
+                <button type="submit"><img src="{{ asset('/img/pesquisar.png') }}" alt="pesquisar"></button>
             </div>
+            <!--Valores necessarios para o retorno-->
+            <input type="hidden" name="id" value="{{ $userId->id }}">
+            <input type="hidden" name="user_type" value="{{$userId->user->user_type}}">
+        </form>
 
+        <form action="{{ route('visita.gerenciar') }}" method="GET">
+            @csrf
             <div class="select-container filter">
                 <div class="show-option" id="showOption">
                     <img src="{{asset('../img/sort.png')}}" alt="">
                     <div class="custom-select" id="customSelect">
-                        Filtrar
+                        {{ $filtro ?? "Filtrar"}}
                     </div>
+                    <!--name do select customizado-->
+                    <input type="hidden" name="filtro" class="hidden">
                 </div>
-                <div class="select-options" id="selectOptions">
-                    <div class="select-option" data-value="1">Nome (A-Z)</div>
-                    <div class="select-option" data-value="2">Data de Entrada</div>
-                    <div class="select-option" data-value="3">Nº do apartamento</div>
+
+                <div class="select-options" id="selectOptions" onclick="this.closest('form').submit()">
+                    <div class="select-option" data-value="id">ID</div>
+                    <div class="select-option" data-value="nomeAZ">Nome (A-Z)</div>
                 </div>
             </div>
-            <a href="{{route('visita.cadastrar')}}" class="addUser"><img src="{{asset('/img/plus.png')}}" alt="">Add Usuário</a>
+            <!--Valores necessarios para o retorno-->
+            <input type="hidden" name="id" value="{{ $userId->id }}">
+            <input type="hidden" name="user_type" value="{{$userId->user->user_type}}">
         </form>
+        <a href="{{route('morador.cadastrar')}}" class="addUser"><img src="{{asset('/img/plus.png')}}" alt="">Add Usuário</a>
     </div>
     <!--fim inline search-->
 
@@ -59,7 +72,7 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                    <tr onclick="selecionar(this)">
+                    <tr onclick="selecionar(this, 'visita')" data-id="{{ $user->id }}">
                         <td>
                             <div class="user">
                                 <figure>
@@ -78,7 +91,12 @@
                         <td>{{ $user->user->birthdate }}</td>
                         <td>{{ $user->user->gender }}</td>
                         <td><span class="state state3">Online</span></td>
-                        <td><button type="button" class="deleted"><img src="{{asset('/img/delete.png')}}" alt=""></button>
+                        <td>
+                            <form action="{{ route('customDelete') }}" method="POST" id="deleteFromTable">
+                                @csrf
+                                <input type="hidden" name="apagarId" value="{{ $user->user->id }}">
+                                <button type="button" class="deleted" onclick="openConfirm('deleteFromTable')"><img src="{{asset('/img/delete.png')}}" alt=""></button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
@@ -87,12 +105,18 @@
         </div>
     </div>
     <!--fim tabela-->
-
+    <p class="message">
+        @if (session('status_delete'))
+        {{ session('status_delete') }}
+        @endif
+    </p>
     <!--perfil-->
-    <div class="line">
+    <form action="{{ route('customDelete') }}" method="POST" class="line" id="deleteFromEdit">
+        @csrf
         <h1>Usuário Selecionado</h1>
-        <button type="button">Deletar usuário</button>
-    </div>
+        <input type="hidden" name="apagarId" value="{{ $userId->user->id }}">
+        <button type="button" onclick="openConfirm('deleteFromEdit')">Deletar usuário</button>
+    </form>
     <div class="perfil-inline">
         <figure>
             @if ($userId->user->profile_photo_path)
@@ -136,23 +160,31 @@
         </div>
     </div>
     <!--fim perfil-->
-    <!--Editar-->
-    <div class="line">
-        <h1>Editar</h1>
+    @else
+    <div class="without-user">
+        <h1>Sem usuário cadastrado!</h1>
     </div>
-    <div class="edit-wraper bar-container">
-        <div class="bar-input">
-            <label>Apartamento:</label>
-            <input type="text" name="" id="">
-        </div>
-    </div>
-
-    <div class="line" id="edit-save">
-        <button type="button">Salvar alterações</button>
-    </div>
-    <!--fim editar-->
+    @endif
 </section>
 
+<!--customConfirm-->
+<div class="customConfirm">
+    <div class="box">
+        <div class="top">
+            <h1>Apagar usuário</h1>
+        </div>
+        <div class="center">
+            <h6>Deja apagar este usuário?</h6>
+        </div>
+        <div class="bottom">
+            <div class="inline">
+                <button type="button" id="cancelar" onclick="closeConfirm(); confirmation('cancelar')">Cancelar</button>
+                <button type="button" id="ok" onclick="closeConfirm(); confirmation('ok')">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--fim customConfirm-->
 
 <script>
     var active = document.querySelector("#side-gerenciar-visita")
@@ -161,8 +193,7 @@
     active.style.background = 'var(--primary-color)'
     activeImg.style.filter = 'invert(1) brightness(3)'
 </script>
+<script src="{{asset('../js/administrador/bar_select.js')}}"></script>
 <script src="{{asset('../js/administrador/gerenciar.js')}}"></script>
-<script src="{{asset('../js/administrador/bar-select.js')}}"></script>
-
 
 @endsection
